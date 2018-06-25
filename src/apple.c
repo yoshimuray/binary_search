@@ -4,22 +4,20 @@ int n;
 int k;
 int A[100000];
 
-int p(int Ap[], int kp, int np, int mp){
-    
-    int i,j;
-    j = 0;
-    int am = Ap[mp];
-    
-    while(j < kp){
-        for(i = 0; i < np; i++){
-        while(Ap[i] > 0){
-            Ap[i] = Ap[i] - am;
-            j = j + 1;
-            printf("%d\n", j);
-        }}
-        return 1;
+int p(int m){
+    int i;
+    int j = 0;
+    for(i = 0; i < n; i++){
+        if(j > k){
+            return 0;
+        }else{
+            if(A[i] % m == 0) j = j + (A[i] / m);
+            else j = j + 1 + (A[i] / m);
+            //printf("j = %d\n", j);
+        }
     }
-    return 0;
+    if(j > k) return 0;
+    else return 1;
 }
 
 int main(){
@@ -28,16 +26,18 @@ int main(){
   for(i = 0; i < n; i++){
     scanf("%d", &A[i]);
   }
-    
-    lb = -1;
-    ub = n;
+    lb = 0;
+    ub = A[n - 1];
     while(ub - lb > 1){
         int m = (ub + lb) / 2;
-        if(p(A, k, n, m)) ub = m;
-        else lb = m;
-        printf("c = %d/n", );
+        if(p(m)){
+            ub = m;
+            //printf("ub = %d\n", ub);
+        }else{
+            lb = m;
+            //printf("lb = %d\n", lb);
+        }
     }
-
-    printf("%d\n", A[ub]);
-  return 0;
+    printf("%d\n", ub);
+    return 0;
 }
