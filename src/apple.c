@@ -16,8 +16,7 @@ int p(int m){
             //printf("j = %d\n", j);
         }
     }
-    if(j > k) return 0;
-    else return 1;
+    return j <= k;
 }
 
 int main(){
@@ -27,7 +26,7 @@ int main(){
     scanf("%d", &A[i]);
   }
     lb = 0;
-    ub = A[n - 1];
+    ub = 1000000000;
     while(ub - lb > 1){
         int m = (ub + lb) / 2;
         if(p(m)){
