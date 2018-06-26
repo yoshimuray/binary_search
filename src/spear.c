@@ -6,7 +6,17 @@ int A[100000];
 
 
 int p(int m){
-    
+  int i;
+  int j = 0;
+  for(i = 0; i < n; i++){
+    if(j >= k){
+      return 1;
+    }else{
+      j = j + (A[i] / m);
+    }
+  }
+  if(j >= k) return 1;
+  else return 0;
 }
 
 int main(){
@@ -15,19 +25,19 @@ int main(){
   for(i = 0; i < n; i++){
     scanf("%d", &A[i]);
   }
-    lb = -1;
+    lb = 0;
     ub = A[n - 1];
     while(ub - lb > 1){
         int m = (ub + lb) / 2;
         if(p(m)){
-            ub = m;
-            printf("ub = %d\n", ub);
-        }else{
             lb = m;
-            printf("lb = %d\n", lb);
+            //printf("lb = %d\n", lb);
+        }else{
+            ub = m;
+            //printf("ub = %d\n", ub);
         }
     }
-    printf("%d\n", ub);
+    printf("%d\n", lb);
 
   return 0;
 }
