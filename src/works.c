@@ -35,10 +35,10 @@ int main(){
         int m = (ub + lb) / 2;
         if(p(m)){
             ub = m;
-            printf("ub = %d\n", ub);
+            //printf("ub = %d\n", ub);
         }else{
             lb = m;
-            printf("lb = %d\n", lb);
+            //printf("lb = %d\n", lb);
         }
     }
     printf("%d\n", ub);
